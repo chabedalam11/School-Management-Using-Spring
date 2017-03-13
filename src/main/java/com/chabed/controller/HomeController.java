@@ -29,12 +29,12 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 	
 	
 	@RequestMapping(value = "admin/admin.htm", method = RequestMethod.GET)
 	public String admin(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		log.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -48,7 +48,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "hr/hrIndex.htm", method = RequestMethod.GET)
 	public String hr(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		log.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -62,7 +62,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "hr/hrIndex2.htm", method = RequestMethod.GET)
 	public String hr2(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		log.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -86,23 +86,28 @@ public class HomeController {
 		
 		String webappRoot = servletContext.getRealPath("/");
 	    String relativeFolder = File.separator + "resources" + File.separator
-	                             + "images" + File.separator;
-	    String filename = webappRoot + relativeFolder
-	                       + file.getOriginalFilename();
+	                             + "images" + File.separator+"bannerImage"+ File.separator;
 	    
+	   /* String filename = webappRoot + relativeFolder
+	                       + file.getOriginalFilename();*/
+	    
+	    
+	    String filename = webappRoot + relativeFolder
+                + "playing.jpg";
 	        System.out.println(filename);  
+	        
 	        try{  
-	        byte barr[]=file.getBytes();  
-	          
-	        BufferedOutputStream bout=new BufferedOutputStream(  
-	                 new FileOutputStream(filename));  
-	        bout.write(barr);  
-	        bout.flush();  
-	        bout.close();  
+		        byte barr[]=file.getBytes();  
+		          
+		        BufferedOutputStream bout=new BufferedOutputStream(  
+		                 new FileOutputStream(filename));  
+		        bout.write(barr);  
+		        bout.flush();  
+		        bout.close();  
 	          
 	        }catch(Exception e){System.out.println(e);}
 		
-		System.out.println("coming to upload method");
+		log.info("coming to upload method");
 	        return "admin/homePageDesign.jsp";    
 	    } 
 	

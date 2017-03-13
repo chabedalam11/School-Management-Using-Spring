@@ -42,7 +42,7 @@
                           <th style="width: 20%">Details..</th>
                           <th>Picture</th>
                           
-                          <th>Status</th>
+                          <th>Size</th>
                           <th style="width: 20%">#Edit</th>
                         </tr>
                       </thead>
@@ -62,7 +62,7 @@
                           </td>
                           
                           <td>
-                            <button type="button" class="btn btn-success btn-xs">Show</button>
+                            <button type="button" class="btn btn-success btn-xs">500 x 500 px</button>
                           </td>
                           <td>
 							    <form action="uploadFile.htm" method="post" enctype="multipart/form-data">  
@@ -76,13 +76,11 @@
                           <td>2</td>
                           <td>
                             <a>Student Playing</a>
-                            <br />
-                            <small>Created 01.01.2015</small>
                           </td>
                           <td>
                             <ul class="list-inline">
                               <li>
-                                <img src="../resources/images/bannerImage/playing.jpg" class="avatar" alt="Avatar">
+                                <img src="../resources/images/we.jpg" class="avatar" alt="Avatar">
                               </li>
                             </ul>
                           </td>
